@@ -1,0 +1,225 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<style type="text/css">
+		
+		body{
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrapper{
+			min-height: 100%;
+			margin-bottom: -100px; 
+		}
+
+		#banner{
+			width: 100%;
+			height: 50px;
+		}
+		#menu{
+			width: 100%;
+			height: 50px;
+			background-color: #6E86FA;
+			padding-left: 5%;
+		}
+		#menulist{
+			position: absolute;
+			height: 100px;
+			font-size: 25px;
+
+		}
+		#menulist , #menulist ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#menulist li{
+			/*border-right: 1px solid #ffffff ;*/
+			list-style: none;
+			float: left;
+			
+		}
+		#menulist a{
+			margin-top: 8%;
+			display: block;
+			text-decoration: none;
+			width: 100px;
+
+		}
+		#menulist li ul{
+			position: absolute;
+			left: auto;
+			width: 150px;
+			background-color: #ffffff;
+		}
+		.active{
+			background-color: #ff0000;
+		}
+		#content{
+			width: 100%;
+			min-height: 967px;
+			background-color: #09ff8E;
+		}
+		#content img{
+			width: 1000px;
+			height: 800px;
+		}
+		#content ul{
+			text-align: center;
+		}
+		#btn{
+			font-size: 20px;
+		}
+		#blue{
+			width: 100%;
+			height: 400px;
+			background-color:#222EFF ;
+		}
+		
+		#footer{
+			clear: both;
+			min-height: 100px;
+			background-color: #ffffff;
+		}
+		#footer input,#footer button{
+			font-size: 22px;
+		}
+		
+		
+
+
+
+	</style>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+			$("#menulist li ul").hide();
+			$("#menulist li").hover(
+
+				function(){
+
+					$(this).find("ul").slideDown("fast");
+					$(this).find("a:first").addClass("active");
+
+				},function(){
+
+					$(this).find(".submenu").fadeOut("fast");
+					$(this).find("a").removeClass("active");
+
+				}
+
+				)
+
+			$("#blue").hide();
+			$("#btn").click(function(){
+
+				$("#blue").slideToggle();
+				// .slideUp();  收起
+				// .slideDown() 放下
+				// .slideToggle(); 收放都有
+			});
+						
+		});
+
+function showAge(){
+
+	var age = document.getElementById("age").value;
+	if (age >= 15 && age <= 50 ){
+		alert("符合");
+	}else{
+		alert("不符合");
+	}
+
+}
+
+	</script>
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="banner">
+		</div>
+
+		<div id="menu">
+
+			<ul id="menulist">
+
+				<li>
+					<a href="#">地圖</a>
+					<ul class="submenu">
+						<li><a href="#">蒙德</a></li>
+						<li><a href="#">璃月	</a></li>
+						<li><a href="#">稻妻	</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#">美食</a>
+					<ul class="submenu">
+						<li><a href="#">爪爪土豆饼</a></li>
+						<li><a href="#">四方和平</a></li>
+						<li><a href="#">蒲烧鳗肉</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#">新聞</a>
+					<ul class="submenu">
+						<li><a href="#">及時</a></li>
+						<li><a href="#">生活</a></li>
+						<li><a href="#">攻略</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#">服務</a>
+					<ul class="submenu">
+						<li><a href="#">WIKI</a></li>
+						<li><a href="#">官方</a></li>
+						<li><a href="#">email</a></li>
+					</ul>
+				</li>		
+
+				<li><a href="#">聯絡</a></li>
+
+			</ul>
+
+
+		</div>
+
+		<div id="content">
+
+			<img src="https://patchwiki.biligame.com/images/ys/thumb/f/fb/enrsrl44uv96x5l5tlo4rvu97fmds70.png/500px-%E7%94%9F%E8%B4%BA%C2%B7%E5%8F%AF%E8%8E%89%C2%B72022.png">
+			<p></p>
+
+			<button id="btn">區域折疊</button>
+			<div id="blue">
+			</div>	
+		</div>
+
+
+
+	</div>
+
+	<div id="footer">
+
+		<form onsubmit="showAge()">
+			<h3>請輸入年齡:</h3>
+			<input type="text" name="age" id="age" />
+
+			<button type="submit">提交</button>
+		</form>
+		
+	</div>
+
+</body>
+</html>
